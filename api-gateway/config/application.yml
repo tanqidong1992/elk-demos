@@ -1,0 +1,52 @@
+spring:
+  profiles:
+    active:
+    - dev
+  application: 
+    name: api-gateway
+  zipkin:
+    base-url: ${ZIPKIN_HOST:http://localhost:9411}
+  servlet:
+    multipart:
+      max-file-size: 1024MB
+      max-request-size: 10240MB
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      globalcors:
+        cors-configurations:
+          '[/**]':
+             allowedOriginPatterns: "*"
+             #allowedOrigins: "*"
+             allowedMethods: "*"
+             allowCredentials: true
+             allowedHeaders: "*"
+        add-to-simple-url-handler-mapping: true
+      x-forwarded:
+        enabled: true   
+eureka:
+  client:
+    service-url:
+      defaultZone:  ${REGISTER_CENTER:http://localhost:12331/eureka}
+    registry-fetch-interval-seconds: 10
+logging:
+  config: ./config/log4j2.xml
+---
+server: 
+  port: 8081
+spring: 
+  profiles:
+  - dev
+debug: false 
+---
+server: 
+  port: 80
+spring:
+  profiles:
+  - prod
+eureka:
+  instance:
+    prefer-ip-address: true #如果是单网卡一个IP,这种方式也可以,入股存在多个IP地址,还是采用hostname配置
+
