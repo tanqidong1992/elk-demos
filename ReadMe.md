@@ -18,11 +18,11 @@
 ```
 ## 使用
 ### 环境依赖
-- 操作系统 Linux Mint 20.1 64bit
-- Docker version 20.10.2
-- docker-compose version 1.27.3
+- 操作系统 Ubuntu 20.04.3 64bit
+- Docker version 20.10.11
+- docker-compose version 1.29.2
 - openjdk version "11.0.9" 2020-10-20 
-- Apache Maven 3.6.2
+- Apache Maven 3.8.3
 ### 启动ELK以及Zipkin
 ```shell
 cd docker
@@ -30,15 +30,12 @@ docker-compose up
 ```
 ### 启动微服务
 ```shell
-cd register && mvn spring-boot:run
-cd api-gateway && mvn spring-boot:run
-cd backing-service && mvn spring-boot:run
-cd front-service && mvn spring-boot:run
+./start-service.sh
 ```
 ### 发起示例请求
 使用浏览器发送如下请求
-- http://localhost:8081/FRONT-SERVICE/greet?msg=test
--  http://localhost:8081/FRONT-SERVICE/echo?msg=test
+- http://localhost:8084/FRONT-SERVICE/greet?msg=test
+-  http://localhost:8084/FRONT-SERVICE/echo?msg=test
 ### 查看调用链路
 用浏览器打开Zipkin主页：http://localhost:9411/
 ### 查看日志

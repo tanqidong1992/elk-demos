@@ -26,6 +26,66 @@
 			<groupId>io.zipkin.zipkin2</groupId>
 			<artifactId>zipkin</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.squareup.okhttp3</groupId>
+			<artifactId>okhttp</artifactId>
+			<version>4.9.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.java-json-tools</groupId>
+			<artifactId>jackson-coreutils</artifactId>
+			<version>2.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/logging-interceptor -->
+		<dependency>
+			<groupId>com.squareup.okhttp3</groupId>
+			<artifactId>logging-interceptor</artifactId>
+			<version>4.9.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.6</version>
+		</dependency>
+		<dependency>
+			<groupId>io.gsonfire</groupId>
+			<artifactId>gson-fire</artifactId>
+			<version>1.8.5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-annotations</artifactId>
+			<version>1.6.2</version>
+		</dependency>
 
 	</dependencies>
+	<build>
+		<plugins>
+			<!-- <plugin>
+				<groupId>org.openapitools</groupId>
+				<artifactId>openapi-generator-maven-plugin</artifactId>
+				<version>5.1.0</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<inputSpec>${project.basedir}/src/main/resources/openapi/zipkin2-api.yaml
+							</inputSpec>
+							<generatorName>java</generatorName>
+							<configOptions>
+								<output>${project.build.directory}/generated-sources/openapi
+								</output>
+								<apiPackage>com.hngd.zipkin.api</apiPackage>
+								<modelPackage>com.hngd.zipkin.model</modelPackage>
+								<invokerPackage>com.hngd.zipkin.handler</invokerPackage>
+							</configOptions>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin> -->
+		</plugins>
+	</build>
 </project>
