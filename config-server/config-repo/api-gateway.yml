@@ -1,0 +1,27 @@
+spring:
+  servlet:
+    multipart:
+      max-file-size: 1024MB
+      max-request-size: 10240MB
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      globalcors:
+        cors-configurations:
+          '[/**]':
+             allowedOriginPatterns: "*"
+             #allowedOrigins: "*"
+             allowedMethods: "*"
+             allowCredentials: true
+             allowedHeaders: "*"
+        add-to-simple-url-handler-mapping: true
+      x-forwarded:
+        enabled: true   
+eureka:
+  client:
+    service-url:
+      defaultZone:  ${REGISTER_CENTER:http://localhost:12331/eureka}
+    registry-fetch-interval-seconds: 10
+

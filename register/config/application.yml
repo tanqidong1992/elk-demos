@@ -1,8 +1,13 @@
-server:
-  port: 12331
-eureka:
-  client:
-    register-with-eureka: false
-    fetch-registry: false
-    service-url:
-      defaultZone: http://localhost:${server.port}/eureka/
+spring:
+  application:
+    name: register
+  cloud:
+    config:
+      uri: ${CONFIG_SERVER:http://localhost:18888}
+  config:
+    import: optional:configserver:${spring.cloud.config.uri}
+  profiles:
+    active:
+    - dev
+logging:
+  config: ${spring.cloud.config.uri}/${spring.application.name}/${spring.profiles.active[0]}/main/log4j2.xml

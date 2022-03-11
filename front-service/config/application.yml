@@ -1,28 +1,15 @@
 spring:
-  profiles: 
-    active:
-      - dev
   application:
     name: front-service
-  zipkin:
-    base-url: ${ZIPKIN_HOST:http://localhost:9411}
-eureka:
-  client:
-    service-url:
-      defaultZone: ${REGISTER_CENTER:http://localhost:12331/eureka/}  
+  cloud:
+    config:
+      uri: ${CONFIG_SERVER:http://localhost:18888}
+  config:
+    import: optional:configserver:${spring.cloud.config.uri}
+  profiles:
+    active:
+    - dev
 logging:
-  config: ./config/log4j2.xml
----
-spring:
-  profiles: dev   
-server:
-  port: 8082
----
-spring:
-  profiles: prod
-server:
-  port: 80
-eureka:
-  instance:
-    prefer-ip-address: true
+  config: ${spring.cloud.config.uri}/${spring.application.name}/${spring.profiles.active[0]}/main/log4j2.xml
+
 

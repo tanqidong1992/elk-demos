@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+	<Appenders>
+		<Console name="console" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="%d{HH:mm:ss.SSS} [%t] %MDC %-5level %logger{36} - %msg%n" />
+		</Console>
+		<Socket name="logstash" host="localhost" port="5000">
+			<JsonTemplateLayout
+				eventTemplateUri="classpath:LogstashJsonEventLayoutV1.json" />
+		</Socket>
+	</Appenders>
+	<Loggers>
+		<Root level="info">
+			<AppenderRef ref="console" />
+			<AppenderRef ref="logstash" />
+		</Root>
+	</Loggers>
+</Configuration>
