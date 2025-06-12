@@ -14,13 +14,12 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>log-viewer</name>
 	<url>http://maven.apache.org</url>
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.elasticsearch.client</groupId>
 			<artifactId>elasticsearch-rest-high-level-client</artifactId>
+			<version>7.17.28</version>
 		</dependency>
 		<dependency>
 			<groupId>io.zipkin.zipkin2</groupId>
@@ -44,12 +43,12 @@
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
-			<version>2.9.0</version>
+			<version>2.13.1</version>
 		</dependency>
 		<dependency>
 			<groupId>io.gsonfire</groupId>
 			<artifactId>gson-fire</artifactId>
-			<version>1.8.5</version>
+			<version>1.9.0</version>
 		</dependency>
 
 		<dependency>

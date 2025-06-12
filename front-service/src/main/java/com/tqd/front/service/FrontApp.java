@@ -11,11 +11,11 @@ import com.tqd.front.service.rpc.SampleClient;
  *
  */
 @SpringBootApplication
-@EnableFeignClients(basePackageClasses =  SampleClient.class)
-public class App 
+//@EnableFeignClients(basePackageClasses =  SampleClient.class)
+public class FrontApp
 {
     public static void main( String[] args )
     {
-        SpringApplication.run(App.class, args);
+        SpringApplication.run(FrontApp.class, args);
     }
 }
