@@ -18,15 +18,14 @@
 ```
 ## 使用
 ### 环境依赖
-- 操作系统 Ubuntu 20.04.3 64bit
-- Docker version 20.10.11
-- docker-compose version 1._29_.2
-- openjdk version "11.0.9" 2020-10-20 
-- Apache Maven 3.8.3
+- 操作系统 Ubuntu 24.04.1
+- Docker CE 28.2.2
+- OpenJDK 21.0.7 
+- Apache Maven 3.9.10
 ### 启动ELK以及Zipkin
 ```shell
 cd docker
-docker-compose up
+docker compose up
 ```
 ### 启动微服务
 ```shell
